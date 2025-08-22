@@ -25,7 +25,7 @@ def fetch_repositories(language, minimum_stars, total, order, page_size, token=N
             params = {
                 'q': f'language:{language} stars:>={minimum_stars}',
                 'sort': 'stars',
-                'order': 'order',
+                'order': order,
                 'per_page': page_size,
                 'page': page
             }
@@ -42,7 +42,7 @@ def fetch_repositories(language, minimum_stars, total, order, page_size, token=N
                 request.raise_for_status()
                 items = request.json().get('items', [])
                 if not items:
-                    print('Request incorrectly formatted.')
+                    print('No results found.')
                     break
                 for item in items:
                     owner = (item.get('owner') or {}).get('login') or 'unknown'
@@ -150,7 +150,11 @@ def main():
         page_size=args.page_size,
         token=token
     )
-    print(f'Fetched {len(repositories)} repositories.')
+    count = len(repositories)
+    print(f'Fetched {count} repositories.')
+    if count == 0:
+        print('No repositories matched your filters. Try lowering --minimum-stars or changing --language.')
+        return
     make_chart(
         repositories,
         title=f'Most-Starred {args.language.capitalize()} Projects on GitHub'
