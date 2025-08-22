@@ -25,7 +25,7 @@ def fetch_repositories(language, minimum_stars, total, order, page_size, token=N
             params = {
                 'q': f'language:{language} stars:>={minimum_stars}',
                 'sort': 'stars',
-                'order': order,
+                'order': order.lower(),
                 'per_page': page_size,
                 'page': page
             }
@@ -108,25 +108,25 @@ def parse_arguments():
     parser.add_argument(
         '--language',
         default='python',
-        help='Language to search for.'
+        help='Language to search for. (default: python)'
     )
     parser.add_argument(
         '--order',
         default='desc',
-        # add description
-        help='Sort order.'
+        choices=['asc', 'desc'],
+        help="Sort order of results: 'asc' for least stars first, 'desc' for most stars first (default: desc)."
     )
     parser.add_argument(
         '--minimum-stars',
         type=int,
         default=10000,
-        help='Minimum amount of stars to sort by.'
+        help='Minimum amount of stars to sort by. (default: 10000)'
     )
     parser.add_argument(
         '--total-repos',
         type=int,
-        default=10,
-        help='Amount of repositories to fetch.'
+        default=100,
+        help='Amount of repositories to fetch. (default: 100)'
     )
     parser.add_argument(
         '--page-size',
@@ -134,7 +134,7 @@ def parse_arguments():
         default=100,
         choices=range(1, 101),
         metavar='[1-100]',
-        help='Results per API page.'
+        help='Results per API page. (default: 100)'
     )
     return parser.parse_args()
 
