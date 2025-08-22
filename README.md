@@ -38,7 +38,7 @@ python3 github_repository_visualizer.py [OPTIONS]
 - `--total-repos` (default: `100`)  
   The total number of repositories to fetch and display.
 
-- `--page-size` (default: `50`)  
+- `--page-size` (default: `100`)  
   The number of repositories to fetch per API request page.
 
 ### Example Usage
