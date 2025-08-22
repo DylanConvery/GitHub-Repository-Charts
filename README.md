@@ -1,4 +1,4 @@
-# GitHub Repositories Visualizer
+# GitHub Repository Charts
 
 ![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python&logoColor=ffdd54)
 
