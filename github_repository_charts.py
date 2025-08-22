@@ -86,10 +86,24 @@ def make_chart(repositories, title):
         }
     )
 
+    total = len(repositories)
+    if total <= 20:
+        font_size = 12
+    elif total <= 50:
+        font_size = 10
+    elif total <= 100:
+        font_size = 8
+    else:
+        font_size = 6
+
     fig.update_layout(
         title_font_size=28,
         xaxis_title_font_size=20,
-        yaxis_title_font_size=20
+        yaxis_title_font_size=20,
+        xaxis=dict(
+            tickmode='linear',
+            tickfont_size=font_size
+        )
     )
 
     fig.update_traces(
@@ -99,6 +113,7 @@ def make_chart(repositories, title):
         marker_opacity=0.6
     )
     fig.show()
+    fig.write_html("docs/index.html")
 
 
 def parse_arguments():

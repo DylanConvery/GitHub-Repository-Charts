@@ -35,7 +35,7 @@ python3 github_repository_visualizer.py [OPTIONS]
 - `--minimum-stars` (default: `10000`)  
   The minimum number of stars a repository must have to be included.
 
-- `--total-repos` (default: `20`)  
+- `--total-repos` (default: `100`)  
   The total number of repositories to fetch and display.
 
 - `--page-size` (default: `50`)  
