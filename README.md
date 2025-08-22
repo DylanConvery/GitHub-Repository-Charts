@@ -55,4 +55,6 @@ python github_repository_visualizer.py
 
 The script generates an interactive bar chart displaying the most-starred GitHub repositories for the specified language. The chart is saved as an HTML file and opened automatically in your default web browser.
 
+👉 [View the interactive chart (GitHub Pages)](https://dylanconvery.github.io/GitHub-Repository-Charts/)
+
 ![Sample Chart Screenshot](docs/images/sample_chart.png)
