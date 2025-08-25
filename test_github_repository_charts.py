@@ -1,5 +1,5 @@
 import pytest
-from github_repository_charts import fetch_repositories, parse_arguments
+from github_repository_charts import fetch_repositories
 
 TOTAL = 30
 STARS = 30
